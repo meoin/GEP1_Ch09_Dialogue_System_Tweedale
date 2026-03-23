@@ -685,6 +685,9 @@ MonoBehaviour:
   _dialogue:
   - This ones my first line of dialogue!
   - and this is my second line! heehee!
+  - I won't let you walk until I'm done talking to you. You're stuck here and you
+    HAVE to listen to me.
+  - Okay you can go now haha
 --- !u!1001 &609325327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8877,7 +8880,7 @@ MonoBehaviour:
   fadeOutTime: 0.5
   messageText: {fileID: 723817096}
   dialoguePanel: {fileID: 870597447}
-  dialogueText: {fileID: 1055774198}
+  dialogueManager: {fileID: 2036358096}
 --- !u!4 &1220462169
 Transform:
   m_ObjectHideFlags: 0
@@ -8893,6 +8896,7 @@ Transform:
   m_Children:
   - {fileID: 1871029680}
   - {fileID: 400608471}
+  - {fileID: 2036358097}
   m_Father: {fileID: 1756705438}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1398256570
@@ -10016,9 +10020,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
-        m_MethodName: DisplayNextString
+      - m_Target: {fileID: 1220462168}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: NextButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10456,6 +10460,56 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &2036358095
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2036358097}
+  - component: {fileID: 2036358096}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2036358096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036358095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddc77c516dfd4314fb32cc04e807df47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textMesh: {fileID: 1055774198}
+  _textToDisplay: 
+  _textIndex: 0
+  TextScrollSpeed: 30
+  PauseTimeAfterDialogue: 1
+  FullTextDisplayed: 0
+--- !u!4 &2036358097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036358095}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1220462169}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6263336036684904273
 PrefabInstance:
   m_ObjectHideFlags: 0

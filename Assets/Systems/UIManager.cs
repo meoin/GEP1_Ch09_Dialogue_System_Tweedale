@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
     [Header("Dialoge")]
     // reference TMP IMage
     [SerializeField] private GameObject dialoguePanel;
-    [SerializeField] private TMP_Text dialogueText;
+    public DialogueManager dialogueManager;
     private Interactable_Dialogue dialogueSource;
 
 
@@ -120,7 +120,13 @@ public class UIManager : MonoBehaviour
     {
         dialogueSource = source;
         ShowDialoguePanel();
-        dialogueText.text = dialogue;
+        dialogueManager.SetText(dialogue);
+    }
+    public void SetDialogueInstantly(string dialogue, Interactable_Dialogue source)
+    {
+        dialogueSource = source;
+        ShowDialoguePanel();
+        dialogueManager.SetTextImmediately(dialogue);
     }
 
     public void NextButton() 

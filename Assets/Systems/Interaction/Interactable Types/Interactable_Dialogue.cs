@@ -23,8 +23,13 @@ public class Interactable_Dialogue : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (showingDialogue) dialogueIndex += 1;
-        showingDialogue = true;
+        if (showingDialogue && !uiManager.dialogueManager.FullTextDisplayed) 
+        {
+            uiManager.SetDialogueInstantly(_dialogue[dialogueIndex], this);
+            return;
+        }
+
+        else if (showingDialogue) dialogueIndex += 1;
 
         if (dialogueIndex >= _dialogue.Length) 
         {
@@ -34,8 +39,11 @@ public class Interactable_Dialogue : MonoBehaviour, IInteractable
             return;
         }
 
-        uiManager.SetDialogue(_dialogue[dialogueIndex], this);  
         
+        uiManager.SetDialogue(_dialogue[dialogueIndex], this);
+
+        showingDialogue = true;
+
     }
 
 }
