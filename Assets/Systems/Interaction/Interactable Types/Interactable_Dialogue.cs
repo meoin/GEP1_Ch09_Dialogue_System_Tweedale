@@ -8,6 +8,7 @@ public class Interactable_Dialogue : MonoBehaviour, IInteractable
 
     [SerializeField] private UIManager uiManager;
 
+    [TextArea(3, 5)]
     [SerializeField] private string[] _dialogue;
     private int dialogueIndex = 0;
     private bool showingDialogue = false;
